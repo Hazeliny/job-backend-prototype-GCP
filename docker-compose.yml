@@ -1,6 +1,15 @@
 version: '3.9'
 
 services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgresql://jobuser:jobpass@postgres:5432/jobs
+    depends_on:
+      - postgres
+      
   postgres:
     image: postgres:15
     environment:

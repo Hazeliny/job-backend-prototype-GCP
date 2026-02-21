@@ -8,7 +8,11 @@ build:
 	docker build -t job-backend .
 
 dev:
+	docker compose up postgres -d
 	npm run dev
+
+prod:
+	docker compose up -d
 
 test:
 	node scripts/test_jobs.js
